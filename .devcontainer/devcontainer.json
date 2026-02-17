@@ -1,0 +1,39 @@
+{
+  "name": "Fabric Workload Dev",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "mounts": [
+    "source=claude-credentials,target=/home/vscode/.claude,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.vscodeintellicode-csharp",
+        "formulahendry.dotnet-test-explorer",
+        "pkief.material-icon-theme",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "dotnet.defaultSolution": "small-simalar-project.sln",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorTheme": "Default Dark Modern",
+        "editor.formatOnSave": true,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.minimap.enabled": false,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "dotnet workload install aspire && dotnet restore && cd src/fabric-workload/App && npm install",
+  "forwardPorts": [5000, 5001, 5173, 15888],
+  "remoteUser": "vscode"
+}

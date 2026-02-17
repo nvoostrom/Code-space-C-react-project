@@ -1,0 +1,44 @@
+# .gitignore for .NET, Node.js, and Vite projects
+
+# .NET build outputs
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# VS Code settings
+.vscode/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite
+/dist
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Others
+*.local.json
+.idea/
+*.iml
+
+# Ignore local settings
+*.local

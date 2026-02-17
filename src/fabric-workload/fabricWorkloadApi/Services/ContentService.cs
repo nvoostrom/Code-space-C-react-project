@@ -1,7 +1,7 @@
 using System.Text.Json;
-using ContentApi.Models;
+using FabricWorkloadApi.Models;
 
-namespace ContentApi.Services;
+namespace FabricWorkloadApi.Services;
 
 public class ContentService
 {

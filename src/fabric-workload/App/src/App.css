@@ -155,6 +155,58 @@ h2 {
 .badge-manager { background: #fff3cd; color: #856404; }
 .badge-analyst { background: #d1ecf1; color: #0c5460; }
 
+.login-prompt {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.login-prompt p {
+  margin: 1rem 0 2rem;
+  color: #666;
+}
+
+.login-button {
+  background: #1a1a2e;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-button:hover {
+  background: #2d2d4e;
+}
+
+.user-info {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-name {
+  font-size: 0.875rem;
+  color: #ccc;
+}
+
+.logout-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .loading {
   text-align: center;
   padding: 3rem;

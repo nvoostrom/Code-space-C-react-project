@@ -1,4 +1,4 @@
-namespace ContentApi.Models;
+namespace FabricWorkloadApi.Models;
 
 public class OrderSummary
 {
