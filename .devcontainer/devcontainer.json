@@ -6,15 +6,12 @@
       "version": "20"
     }
   },
-  "mounts": [
-    "source=claude-credentials,target=/home/vscode/.claude,type=volume"
-  ],
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-dotnettools.csharp",
         "ms-dotnettools.csdevkit",
-        "ms-dotnettools.vscodeintellicode-csharp",
+        "github.copilot-chat",
         "formulahendry.dotnet-test-explorer",
         "pkief.material-icon-theme",
         "dbaeumer.vscode-eslint",

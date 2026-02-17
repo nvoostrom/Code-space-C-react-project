@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "src\aspire\AppHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDefaults", "src\aspire\ServiceDefaults\ServiceDefaults.csproj", "{8F2DF190-6FE8-4DEE-BD89-6C2006301B0D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A8CE24E6-9361-49C3-B2A5-6BFE998D5FCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedDataApi.Tests", "tests\SharedDataApi.Tests\SharedDataApi.Tests.csproj", "{0FD00841-BDF3-43BD-AE21-69C808517A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabricWorkloadApi.Tests", "tests\FabricWorkloadApi.Tests\FabricWorkloadApi.Tests.csproj", "{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,9 +41,19 @@ Global
 		{8F2DF190-6FE8-4DEE-BD89-6C2006301B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F2DF190-6FE8-4DEE-BD89-6C2006301B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F2DF190-6FE8-4DEE-BD89-6C2006301B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD00841-BDF3-43BD-AE21-69C808517A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD00841-BDF3-43BD-AE21-69C808517A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD00841-BDF3-43BD-AE21-69C808517A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD00841-BDF3-43BD-AE21-69C808517A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9D01ED00-4ADA-44D4-B1F7-4FB3E3D4DDC0} = {C34607D1-C830-4FAA-A4CD-50774AAF1508}
 		{8F2DF190-6FE8-4DEE-BD89-6C2006301B0D} = {C34607D1-C830-4FAA-A4CD-50774AAF1508}
+		{0FD00841-BDF3-43BD-AE21-69C808517A96} = {A8CE24E6-9361-49C3-B2A5-6BFE998D5FCF}
+		{1ECA7C5E-90C3-4F02-8559-2ACCA61FA3BE} = {A8CE24E6-9361-49C3-B2A5-6BFE998D5FCF}
 	EndGlobalSection
 EndGlobal
