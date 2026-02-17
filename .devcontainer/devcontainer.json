@@ -31,7 +31,7 @@
       }
     }
   },
-  "postCreateCommand": "dotnet workload install aspire && dotnet dev-certs https --trust && dapr init --slim && dotnet restore && cd src/fabric-workload/App && npm install",
+  "postCreateCommand": "nohup dotnet workload install aspire && dotnet dev-certs https --trust && dapr init --slim && dotnet restore && cd src/fabric-workload/App && npm install",
   "forwardPorts": [5173, 15888],
   "portsAttributes": {
     "5173": {
