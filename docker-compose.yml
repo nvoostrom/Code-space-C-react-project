@@ -1,0 +1,74 @@
+services:
+  shared-api:
+    build:
+      context: .
+      dockerfile: src/shared/Dockerfile
+    networks:
+      - app-network
+
+  shared-api-dapr:
+    image: "daprio/daprd:latest"
+    command:
+      [
+        "./daprd",
+        "--app-id", "shared-api",
+        "--app-port", "8080",
+        "--dapr-http-port", "3500",
+        "--dapr-grpc-port", "50001",
+        "--resources-path", "/components",
+        "--config", "/config/config.yaml",
+      ]
+    volumes:
+      - ./dapr/components:/components
+      - ./dapr/config.yaml:/config/config.yaml
+    depends_on:
+      - shared-api
+    network_mode: "service:shared-api"
+
+  content-api:
+    build:
+      context: .
+      dockerfile: src/fabric-workload/fabricWorkloadApi/Dockerfile
+    environment:
+      - SharedApi__BaseUrl=http://shared-api:8080
+    depends_on:
+      - shared-api
+    networks:
+      - app-network
+
+  content-api-dapr:
+    image: "daprio/daprd:latest"
+    command:
+      [
+        "./daprd",
+        "--app-id", "content-api",
+        "--app-port", "8080",
+        "--dapr-http-port", "3500",
+        "--dapr-grpc-port", "50001",
+        "--resources-path", "/components",
+        "--config", "/config/config.yaml",
+      ]
+    volumes:
+      - ./dapr/components:/components
+      - ./dapr/config.yaml:/config/config.yaml
+    depends_on:
+      - content-api
+    network_mode: "service:content-api"
+
+  frontend:
+    build:
+      context: src/fabric-workload/App
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - CONTENT_API_HOST=content-api
+      - CONTENT_API_PORT=8080
+    depends_on:
+      - content-api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,12 +1,7 @@
 using SharedDataApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.AddServiceDefaults();
-
 var app = builder.Build();
-
-app.MapDefaultEndpoints();
 
 // Products
 app.MapGet("/api/products", () => DataStore.Products);
@@ -33,5 +28,3 @@ app.MapGet("/api/orders/{id:int}", (int id) =>
 });
 
 app.Run();
-
-public partial class Program { }

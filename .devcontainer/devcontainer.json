@@ -1,10 +1,11 @@
 {
   "name": "Fabric Workload Dev",
-  "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:1-10.0",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
-    }
+    },
+    "ghcr.io/dapr/cli/dapr-cli:0": {}
   },
   "customizations": {
     "vscode": {
@@ -30,7 +31,28 @@
       }
     }
   },
-  "postCreateCommand": "dotnet workload install aspire && dotnet restore && cd src/fabric-workload/App && npm install",
-  "forwardPorts": [5000, 5001, 5173, 15888],
+  "postCreateCommand": "dotnet workload install aspire && dotnet dev-certs https --trust && dapr init --slim && dotnet restore && cd src/fabric-workload/App && npm install",
+  "postStartCommand": "dotnet watch run --project src/aspire/AppHost/AppHost.csproj --launch-profile https",
+  "forwardPorts": [5173, 15888],
+  "portsAttributes": {
+    "5173": {
+      "label": "Frontend",
+      "onAutoForward": "notify",
+      "visibility": "private"
+    },
+    "15888": {
+      "label": "Aspire Dashboard",
+      "onAutoForward": "notify",
+      "visibility": "private"
+    },
+    "5100": {
+      "label": "SharedDataApi (internal)",
+      "onAutoForward": "ignore"
+    },
+    "5200": {
+      "label": "ContentApi (internal)",
+      "onAutoForward": "ignore"
+    }
+  },
   "remoteUser": "vscode"
 }

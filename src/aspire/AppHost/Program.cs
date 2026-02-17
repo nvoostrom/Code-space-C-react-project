@@ -1,12 +1,16 @@
+using AppHost;
+using Projects;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sharedApi = builder.AddProject<Projects.SharedDataApi>("shared-api");
+var sharedData = builder.AddService<SharedDataApi>("shared-data");
 
-var fabricWorkloadApi = builder.AddProject<Projects.FabricWorkloadApi>("content-api")
-    .WithReference(sharedApi);
+var contentApi = builder.AddService<ContentApi>("content-api")
+                        .WaitFor(sharedData);
 
-builder.AddNpmApp("frontend", "../../fabric-workload/App", "dev")
-    .WithReference(fabricWorkloadApi)
-    .WithHttpEndpoint(env: "PORT");
+builder.AddNpmApp("fabric-workload-frontend", "../../fabric-workload/App", "dev")
+       .WithHttpEndpoint(5173, isProxied: false)
+       .WaitFor(contentApi);
 
-builder.Build().Run();
+builder.Build()
+       .Run();

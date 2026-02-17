@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/.git
+**/tests/
+**/*.test.ts
+**/*.test.tsx
+**/e2e/

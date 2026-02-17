@@ -6,26 +6,45 @@ A simplified, self-contained version of the birds-fabric-services architecture. 
 
 ```
 src/
-├── shared/          -> SharedDataApi (.NET 8) - Rich in-memory data source (port 5100)
-├── content/         -> ContentApi (.NET 8) - Calls shared & filters/transforms data (port 5200)
+├── shared/          -> SharedDataApi (.NET 10) - Rich in-memory data source (port 5100)
+├── content/         -> ContentApi (.NET 10) - Calls shared & filters/transforms data (port 5200)
 └── fabric-workload/ -> React app (Vite + TypeScript) - Dashboard frontend (port 5173)
 ```
 
-## How to Run
+## Aspire + Dapr (Recommended)
+
+Mirrors the main birds-fabric-services architecture using .NET Aspire for orchestration and Dapr for service-to-service invocation.
+
+### Prerequisites
+
+- .NET 10 SDK
+- Aspire workload: `dotnet workload install aspire`
+- Dapr CLI installed + `dapr init`
+
+### Run
+
+```bash
+cd small-simalar-project
+dotnet run --project src/aspire/AppHost
+```
+
+The Aspire dashboard opens automatically. All services (SharedDataApi, ContentApi, frontend) and their Dapr sidecars are visible in the dashboard. ContentApi calls SharedDataApi via Dapr service invocation (visible in Aspire traces).
+
+## Manual Run (Alternative)
 
 Open three terminals:
 
 ```bash
 # Terminal 1: Start shared API
-cd src/shared
+cd small-simalar-project/src/shared
 dotnet run
 
 # Terminal 2: Start content API
-cd src/content
+cd small-simalar-project/src/content
 dotnet run
 
 # Terminal 3: Start React app
-cd src/fabric-workload
+cd small-simalar-project/src/fabric-workload
 npm install
 npm run dev
 ```

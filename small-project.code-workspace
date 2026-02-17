@@ -3,5 +3,7 @@
     { "name": "Solution", "path": "." },
     { "name": "Frontend (React)", "path": "src/fabric-workload/App" }
   ],
-  "settings": {}
+  "settings": {
+    "remote.autoForwardPortsFallback": 0
+  }
 }

@@ -9,6 +9,11 @@ public static class DistributedApplicationBuilderExtensions
         string serviceName) where TProject : IProjectMetadata, new()
     {
         return builder.AddProject<TProject>($"{serviceName}-service")
-                      .WithDaprSidecar(new DaprSidecarOptions { AppId = serviceName });
+                      .WithDaprSidecar(new DaprSidecarOptions
+                      {
+                          AppId = serviceName,
+                          PlacementHostAddress = "",
+                          SchedulerHostAddress = "",
+                      });
     }
 }

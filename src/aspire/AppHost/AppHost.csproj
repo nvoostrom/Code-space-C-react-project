@@ -1,23 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
-
+  <Sdk Name="Aspire.AppHost.Sdk" Version="13.1.0" />
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsAspireHost>true</IsAspireHost>
-    <UserSecretsId>44523fc2-da9e-4247-b1c7-7aa7da7ab765</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.2" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.1.0" />
     <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.5.2" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Dapr" Version="13.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\shared\SharedDataApi.csproj" />
-    <ProjectReference Include="..\..\fabric-workload\fabricWorkloadApi\FabricWorkloadApi.csproj" />
+    <ProjectReference Include="..\..\content\ContentApi.csproj" />
   </ItemGroup>
 
 </Project>

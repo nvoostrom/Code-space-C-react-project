@@ -4,9 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
+var sharedApiBaseUrl = builder.Configuration["SharedApi:BaseUrl"] ?? "https+http://shared-api";
 builder.Services.AddHttpClient<ContentService>(client =>
 {
-    client.BaseAddress = new Uri("https+http://shared-api");
+    client.BaseAddress = new Uri(sharedApiBaseUrl);
 });
 
 builder.Services.AddCors(options =>
